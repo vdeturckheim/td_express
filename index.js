@@ -2,11 +2,6 @@
 const Express = require('express');
 const BP = require('body-parser');
 
-const Joi = require('joi');
-const Celebrate = require('celebrate');
-
-const DB = require('./db.js');
-
 const app = Express();
 
 app.use(BP.json());
