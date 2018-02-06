@@ -1,0 +1,22 @@
+{
+  "name": "@vdeturckheim/myposts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "lab"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "celebrate": "^7.0.4",
+    "express": "^4.16.2",
+    "joi": "^13.1.2",
+    "sqlite3": "^3.1.13"
+  },
+  "devDependencies": {
+    "code": "^5.1.2",
+    "lab": "^15.2.1"
+  }
+}
