@@ -4,8 +4,6 @@ const expect = Code.expect;
 const Lab = require('lab');
 const lab  = module.exports.lab = Lab.script();
 
-const after = lab.after;
-const before = lab.before;
 const describe = lab.describe;
 const it = lab.it;
 
