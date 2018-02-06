@@ -5,19 +5,24 @@ const router = Express.Router();
 const Passport = require('passport');
 const BasicStrategy = require('passport-http').BasicStrategy;
 
-const USER = {
-    USERNAME: 'Jack',
-    PASSWORD: 'Ripper'
-};
+const DB = require('../db.js');
 
 Passport.use(new BasicStrategy((username, password, done) => {
 
-    if (username === USER.USERNAME && password === USER.PASSWORD) {
-        // auth success
-        return done(null, USER);
-    }
-    // auth failed
-    return done(null, false);
+    DB.get('SELECT * FROM USERS WHERE USERNAME = ?' ,[username], (err, user) => {
+
+        if (err) {
+            return done(err);
+        }
+        if (!user) {
+            return done(null, false);
+        }
+        if (user.PASSWORD === password) {
+            user.PASSWORD = undefined;
+            return done(null, user);
+        }
+        return done(null, false);
+    });
 }));
 
 router.get('/login', Passport.authenticate('basic', { session: false }), (req, res) => {
