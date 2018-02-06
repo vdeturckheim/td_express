@@ -8,10 +8,17 @@ try {
 }
 catch (_ign) {}
 
-const DB = new Sqlite.Database(DB_NAME);
+let DB;
+const initAll = function () {
 
-const init = Fs.readFileSync(Path.join(process.cwd(), './database/init.sql'), 'utf-8');
+    DB = new Sqlite.Database(DB_NAME);
 
-DB.exec(init);
+    const init = Fs.readFileSync(Path.join(process.cwd(), './database/init.sql'), 'utf-8');
+
+    DB.exec(init);
+};
+
+initAll();
 
 module.exports = DB;
+module.exports.initAll = initAll;
