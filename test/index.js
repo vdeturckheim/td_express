@@ -11,13 +11,19 @@ const it = lab.it;
 
 describe('math', () => {
 
-    before(() => {});
+    describe('add', () => {
 
-    after(() => {});
+        it('returns true when 1 + 1 equals 2', (done) => {
 
-    it('returns true when 1 + 1 equals 2', () => {
+            expect(1 + 1).to.equal(2);
+            done();
+        });
+    });
 
-        expect(1 + 1).to.equal(2);
+    it('should return 42', (done) => {
+
+        expect(6 * 7).to.equal(42);
+        done();
     });
 });
 
