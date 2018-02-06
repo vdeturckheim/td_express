@@ -9,9 +9,9 @@ try {
 catch (_ign) {}
 
 let DB;
-const initAll = function () {
+const initAll = function (name) {
 
-    DB = new Sqlite.Database(DB_NAME);
+    DB = new Sqlite.Database(name || DB_NAME);
 
     const init = Fs.readFileSync(Path.join(process.cwd(), './database/init.sql'), 'utf-8');
 

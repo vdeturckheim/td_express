@@ -18,7 +18,7 @@ describe('posts', () => {
 
         it('should return the list of posts in database', (done) => {
 
-            DB.initAll();
+            DB.initAll('posts.list');
             const app = Express();
             app.use('/posts', PostRouter);
             Supertest(app)
