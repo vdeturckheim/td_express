@@ -7,7 +7,7 @@ const DB = require('../db.js');
 
 const router = Express.Router();
 
-router.get('/posts', (req, res, next) => {
+router.get('/', (req, res, next) => {
 
     console.log('GET /posts');
     DB.all('SELECT * FROM POSTS', (err, data) => {
@@ -19,7 +19,7 @@ router.get('/posts', (req, res, next) => {
     });
 });
 
-router.get('/posts/:id', (req, res, next) => {
+router.get('/:id', (req, res, next) => {
 
     DB.get('SELECT * FROM POSTS WHERE ID = ?', [req.params.id], (err, data) => {
 
@@ -30,7 +30,7 @@ router.get('/posts/:id', (req, res, next) => {
     });
 });
 
-router.post('/posts', Celebrate.celebrate(
+router.post('/', Celebrate.celebrate(
     {
         body: Joi.object().keys({
             title: Joi.string().required(),
@@ -51,7 +51,7 @@ router.post('/posts', Celebrate.celebrate(
         });
     });
 
-router.patch('/posts/:id', (req, res, next) => {
+router.patch('/:id', (req, res, next) => {
 
     DB.run('UPDATE POSTS SET TITLE=?, CONTENT=? WHERE ID = ?', [req.body.title, req.body.content, req.params.id], (err) =>{
 
@@ -62,7 +62,7 @@ router.patch('/posts/:id', (req, res, next) => {
     });
 });
 
-router.delete('/posts/:id', (req, res, next) => {
+router.delete('/:id', (req, res, next) => {
 
     DB.run('DELETE FROM POSTS WHERE ID = ?', [req.params.id], (err) => {
 

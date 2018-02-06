@@ -6,7 +6,7 @@ const app = Express();
 
 app.use(BP.json());
 
-app.use(require('./routes/posts').router);
+app.use('/posts', require('./routes/posts').router);
 
 app.listen(8080, (err) => {
 
