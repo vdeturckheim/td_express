@@ -12,7 +12,6 @@ Build the following:
     * a password
 
 The following routes
-* GET /login (returns a token), AUTH: Basic HTTP auth
 * GET /bottles return all bottles AUTH: No Auth
 * GET /bottles/id return a bottles AUTH: No Auth
 * POST /bottles add a bottles AUTH: admin only
