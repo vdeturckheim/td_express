@@ -1,5 +1,9 @@
 'use strict';
 const Express = require('express');
+const Joi = require('joi');
+const Celebrate = require('celebrate');
+
+const DB = require('../db.js');
 
 const router = Express.Router();
 
