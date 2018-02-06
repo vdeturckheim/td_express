@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "code": "^5.1.2",
-    "lab": "^14.3.2"
+    "lab": "^14.3.2",
+    "supertest": "^3.0.0"
   }
 }
